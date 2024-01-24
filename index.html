@@ -9,7 +9,17 @@
     <script>
       const data = fetch("https://rickandmortyapi.com/api/character/?page=1")
         .then((response) => response.json())
-        .then((response) => (characters = response));
+        .then((response) => (characters = response.results))
+        .then(function () {
+          const templateCharacter = document.querySelector(
+            "#template-character"
+          ).innerHTML;
+          const containerCharacters = document.querySelector("#characters");
+
+          htmlCharacters = Mustache.render(templateCharacter, characters);
+
+          containerCharacters.innerHTML = htmlCharacters;
+        });
     </script>
     <script src="mustache.js"></script>
   </head>
@@ -217,5 +227,40 @@
       </section>
       <footer id="#footer"></footer>
     </div>
+
+    <script id="template-character" type="x-tmpl-mustache">
+      {{#.}}
+        <div class="card">
+          <h3 clas="name">{{name}}</h3>
+          <img
+            class="avatar"
+            src="{{image}}"
+          />
+          <ul class="infos">
+            {{#status}}
+            <li>{{status}}</li>
+            {{/status}}
+            {{#specie}}
+              <li>{{specie}}</li>
+            {{/specie}}
+            {{#type}}
+            <li>{{type}}</li>
+            {{/type}}
+            {{#gender}}
+            <li>{{gender}}</li>
+            {{/gender}}
+            {{#origin.name}}
+            <li><a href="#">{{origin.name}}</a></li>
+            {{/origin.name}}
+            {{#location.name}}
+            <li><a href="#">{{location.name}}</a></li>
+            {{/location.name}}
+            {{#episode.length}}
+            <li><a href="#">{{episode.length}} episodes</a></li>
+            {{/episode.length}}
+          </ul>
+        </div>
+      {{/.}}
+    </script>
   </body>
 </html>
