@@ -185,7 +185,7 @@ h1 {
   display: flex;
   grid-template-rows: auto;
   gap: 20px;
-  min-width: 280px;
+  width: 280px;
   border-radius: 8px;
   padding: 40px;
   background-color: #193840;
@@ -193,8 +193,14 @@ h1 {
   align-items: center;
 }
 
-.card .infos {
-  width: 100%;
+.grid .card h3 {
+  text-align: center;
+  font-size: 24px;
+}
+
+.grid .card .infos {
+  display: grid;
+  gap: 8px;
 }
 
 #pagination {
