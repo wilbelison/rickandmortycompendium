@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rick and Morty Compendium</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="calligraphr.woff2" as="font" type="font/woff2" crossorigin />
-    <script src="mustache.js"></script>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="./calligraphr.woff2" as="font" type="font/woff2" crossorigin />
+    <script src="./mustache.js"></script>
+    <script src="./script.js"></script>
   </head>
   <body>
     <div id="base" class="wrapper">
@@ -21,10 +21,10 @@
         <nav id="menu">
           <ul>
             <li>
-              <a href="/?category=characters" title="Characters">Characters</a>
+              <a href="./?category=characters" title="Characters">Characters</a>
             </li>
-            <li><a href="/?category=locations" title="Locations">Locations</a></li>
-            <li><a href="/?category=episodes" title="Episodes">Episodes</a></li>
+            <li><a href="./?category=locations" title="Locations">Locations</a></li>
+            <li><a href="./?category=episodes" title="Episodes">Episodes</a></li>
           </ul>
         </nav>
       </header>
@@ -100,7 +100,7 @@
       </main>
 
       <section id="pagination">
-        <a href="?page=1" title="previous page" class="arrow prev"><</a>
+        <a href="./?page=1" title="previous page" class="arrow prev"><</a>
         Page
         <select name="page" id="page">
           <option value="1" selected>1</option>
@@ -109,7 +109,7 @@
           <option value="4">4</option>
         </select>
         of <span class="total">99</span>
-        <a href="?page=2" title="next page" class="arrow next">></a>
+        <a href="./?page=2" title="next page" class="arrow next">></a>
       </section>
       <footer id="#footer"></footer>
     </div>
