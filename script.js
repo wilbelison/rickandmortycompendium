@@ -7,7 +7,9 @@ setPage = function (info) {
 };
 
 if (category == "locations") {
+    
 } else if (category == "episodes") {
+
 } else {
   const data = fetch("https://rickandmortyapi.com/api/character/?page=" + page)
     .then((response) => response.json())
