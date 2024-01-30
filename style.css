@@ -127,10 +127,15 @@ header {
 #menu ul {
   width: 100%;
   display: flex;
-  list-style: none;
   justify-content: end;
   gap: 80px;
   font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li {
+  list-style: none;
 }
 
 #menu a {
@@ -178,6 +183,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
+  justify-content: center;
 }
 
 .grid .card {
@@ -200,9 +206,12 @@ h1 {
 .grid .card .infos {
   display: grid;
   gap: 8px;
-  list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.grid .card .infos li {
+  list-style: none;
 }
 
 #pagination {
@@ -228,19 +237,22 @@ h1 {
   #base {
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    margin: 0;
+    gap: 40px 0;
   }
   #header {
     flex-direction: column;
     gap: 40px 0;
     align-items: center;
   }
-  #menu ul {
-    gap: 20px;
-    justify-content: center;
-  }
 
-  #menu a {
-    font-size: 12px;
+  #menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+    align-items: center;
+    padding-inline-start: 0px;
   }
 
 }
