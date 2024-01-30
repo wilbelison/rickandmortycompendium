@@ -190,7 +190,6 @@ h1 {
   padding: 40px;
   background-color: #193840;
   flex-direction: column;
-  align-items: center;
 }
 
 .grid .card h3 {
@@ -201,6 +200,9 @@ h1 {
 .grid .card .infos {
   display: grid;
   gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 #pagination {
