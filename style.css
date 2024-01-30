@@ -223,3 +223,24 @@ h1 {
 #pagination .total {
   color: #fff;
 }
+
+@media only screen and (max-width: 1024px) {
+  #base {
+    display: flex;
+    flex-direction: column;
+  }
+  #header {
+    flex-direction: column;
+    gap: 40px 0;
+    align-items: center;
+  }
+  #menu ul {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  #menu a {
+    font-size: 12px;
+  }
+
+}
