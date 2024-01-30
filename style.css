@@ -214,6 +214,10 @@ h1 {
   font-size: 36px;
 }
 
+#pagination arrow.disabled {
+  display:none;
+}
+
 #pagination .total {
   color: #fff;
 }
