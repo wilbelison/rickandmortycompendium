@@ -23,8 +23,12 @@
             <li>
               <a href="./?category=characters" title="Characters">Characters</a>
             </li>
-            <li><a href="./?category=locations" title="Locations">Locations</a></li>
-            <li><a href="./?category=episodes" title="Episodes">Episodes</a></li>
+            <li>
+              <a href="./?category=locations" title="Locations">Locations</a>
+            </li>
+            <li>
+              <a href="./?category=episodes" title="Episodes">Episodes</a>
+            </li>
           </ul>
         </nav>
       </header>
@@ -144,6 +148,45 @@
             {{#episode.length}}
             <li>Episodes: {{episode.length}}</li>
             {{/episode.length}}
+          </ul>
+        </div>
+      {{/.}}
+    </script>
+
+    <script id="template-location" type="x-tmpl-mustache">
+      {{#.}}
+        <div class="card">
+          <h3 clas="name">{{name}}</h3>
+          <ul class="infos">
+            {{#type}}
+            <li>Type: {{type}}</li>
+            {{/type}}
+            {{#dimension}}
+              <li>Dimension: {{dimension}}</li>
+            {{/dimension}}
+            {{#residents.length}}
+            <li>Residentss: {{residents.length}}</li>
+            {{/residents.length}}
+          </ul>
+        </div>
+      {{/.}}
+    </script>
+
+    
+    <script id="template-episode" type="x-tmpl-mustache">
+      {{#.}}
+        <div class="card">
+          <h3 clas="name">{{name}}</h3>
+          <ul class="infos">
+            {{#air_date}}
+            <li>Air date: {{air_date}}</li>
+            {{/air_date}}
+            {{#episode}}
+              <li>Episode: {{episode}}</li>
+            {{/episode}}
+            {{#characters.length}}
+            <li>Characters: {{characters.length}}</li>
+            {{/characters.length}}
           </ul>
         </div>
       {{/.}}

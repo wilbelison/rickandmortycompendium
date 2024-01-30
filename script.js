@@ -7,9 +7,33 @@ setPage = function (info) {
 };
 
 if (category == "locations") {
-    
-} else if (category == "episodes") {
+  const data = fetch("https://rickandmortyapi.com/api/location?page=" + page)
+    .then((response) => response.json())
+    .then((response) => (content = response))
+    .then(function () {
+      const template = document.querySelector("#template-location").innerHTML;
+      const container = document.querySelector("#content");
 
+      contentHtml = Mustache.render(template, content.results);
+
+      container.innerHTML = contentHtml;
+
+      setPage(content.info);
+    });
+} else if (category == "episodes") {
+  const data = fetch("https://rickandmortyapi.com/api/episode?page=" + page)
+    .then((response) => response.json())
+    .then((response) => (content = response))
+    .then(function () {
+      const template = document.querySelector("#template-episode").innerHTML;
+      const container = document.querySelector("#content");
+
+      contentHtml = Mustache.render(template, content.results);
+
+      container.innerHTML = contentHtml;
+
+      setPage(content.info);
+    });
 } else {
   const data = fetch("https://rickandmortyapi.com/api/character/?page=" + page)
     .then((response) => response.json())
