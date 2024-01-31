@@ -4,6 +4,24 @@ const page = urlParams.get("page") || 1;
 
 setPage = function (info) {
   console.log(info);
+
+  const pagination = document.querySelector("#pagination");
+
+  const nextButton = pagination.querySelector(".next");
+  const prevButton = pagination.querySelector(".prev");
+
+  const selectPage = pagination.querySelector("#page");
+
+  selectPage.addEventListener('change', () => {
+    alert(this.val());
+  });
+
+  nextButton.addEventListener('click', () => {
+    alert("next");
+  });
+  prevButton.addEventListener('click', () => {
+    alert("prev");
+  });
 };
 
 if (category == "locations") {
