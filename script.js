@@ -13,7 +13,7 @@ setPage = function (info) {
   const selectPage = pagination.querySelector("#page");
 
   selectPage.addEventListener('change', () => {
-    alert(this.val());
+    alert(selectPage.value);
   });
 
   nextButton.addEventListener('click', () => {
