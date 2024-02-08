@@ -12,58 +12,26 @@ setPage = function (info) {
 
   const selectPage = pagination.querySelector("#page");
 
-  selectPage.addEventListener('change', () => {
+  selectPage.addEventListener("change", () => {
     alert(selectPage.value);
   });
 
-  nextButton.addEventListener('click', () => {
+  nextButton.addEventListener("click", () => {
     alert("next");
   });
-  prevButton.addEventListener('click', () => {
+  prevButton.addEventListener("click", () => {
     alert("prev");
   });
 };
 
-if (category == "locations") {
-  const data = fetch("https://rickandmortyapi.com/api/location?page=" + page)
-    .then((response) => response.json())
-    .then((response) => (content = response))
-    .then(function () {
-      const template = document.querySelector("#template-location").innerHTML;
-      const container = document.querySelector("#content");
-
-      contentHtml = Mustache.render(template, content.results);
-
-      container.innerHTML = contentHtml;
-
-      setPage(content.info);
-    });
-} else if (category == "episodes") {
-  const data = fetch("https://rickandmortyapi.com/api/episode?page=" + page)
-    .then((response) => response.json())
-    .then((response) => (content = response))
-    .then(function () {
-      const template = document.querySelector("#template-episode").innerHTML;
-      const container = document.querySelector("#content");
-
-      contentHtml = Mustache.render(template, content.results);
-
-      container.innerHTML = contentHtml;
-
-      setPage(content.info);
-    });
-} else {
-  const data = fetch("https://rickandmortyapi.com/api/character/?page=" + page)
-    .then((response) => response.json())
-    .then((response) => (content = response))
-    .then(function () {
-      const template = document.querySelector("#template-character").innerHTML;
-      const container = document.querySelector("#content");
-
-      contentHtml = Mustache.render(template, content.results);
-
-      container.innerHTML = contentHtml;
-
-      setPage(content.info);
-    });
-}
+const data = fetch("https://rickandmortyapi.com/api/character?page=" + page)
+  .then((response) => response.json())
+  .then((response) => (content = response))
+  .then(function () {
+    const template = Handlebars.compile(
+      document.querySelector("#template-character").innerHTML
+    );
+    const container = document.querySelector("#content");
+    container.innerHTML = template(content);
+    setPage(content.info);
+  });

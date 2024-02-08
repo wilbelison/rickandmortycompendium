@@ -6,7 +6,7 @@
     <title>Rick and Morty Compendium</title>
     <link rel="stylesheet" href="./style.css" />
     <link href="./calligraphr.woff2" as="font" type="font/woff2" crossorigin />
-    <script src="./mustache.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src="./script.js"></script>
   </head>
   <body>
@@ -35,60 +35,60 @@
 
       <section id="filters">
         <h2>Filters</h2>
-
-        <div class="filter">
-          <label for="filter-name">Name</label>
+        <form>
+          <div class="filter">
+            <label for="filter-name">Name</label>
+            <input
+              type="text"
+              id="filter-name"
+              name="filter-name"
+              placeholder="Ex.: Rick Sanchez"
+            />
+          </div>
+          <div class="filter">
+            <label for="filter-status">Status</label>
+            <select name="filter-status" id="filter-status">
+              <option value="all" selected>All</option>
+              <option value="alive">Alive</option>
+              <option value="dead">Dead</option>
+              <option value="unknownd">Unknown</option>
+            </select>
+          </div>
+          <div class="filter">
+            <label for="filter-specie">Specie</label>
+            <input
+              type="text"
+              id="filter-specie"
+              name="filter-specie"
+              placeholder="Ex.: Alien"
+            />
+          </div>
+          <div class="filter">
+            <label for="filter-subspecie">Subspecie</label>
+            <input
+              type="text"
+              id="filter-subspecie"
+              name="filter-subspecie"
+              placeholder="Ex.: Parasite"
+            />
+          </div>
+          <div class="filter">
+            <label for="filter-gender">Gender</label>
+            <select name="filter-gender" id="filter-gender">
+              <option value="all" selected>All</option>
+              <option value="femalee">Female</option>
+              <option value="genderless">Genderless</option>
+              <option value="male">Male</option>
+              <option value="unknown">Unknown</option>
+            </select>
+          </div>
           <input
-            type="text"
-            id="filter-name"
-            name="filter-name"
-            placeholder="Ex.: Rick Sanchez"
+            type="submit"
+            name="filters-apply"
+            id="filters-apply"
+            value="Apply filters"
           />
-        </div>
-        <div class="filter">
-          <label for="filter-status">Status</label>
-          <select name="filter-status" id="filter-status">
-            <option value="all" selected>All</option>
-            <option value="alive">Alive</option>
-            <option value="dead">Dead</option>
-            <option value="unknownd">Unknown</option>
-          </select>
-        </div>
-        <div class="filter">
-          <label for="filter-specie">Specie</label>
-          <input
-            type="text"
-            id="filter-specie"
-            name="filter-specie"
-            placeholder="Ex.: Alien"
-          />
-        </div>
-        <div class="filter">
-          <label for="filter-subspecie">Subspecie</label>
-          <input
-            type="text"
-            id="filter-subspecie"
-            name="filter-subspecie"
-            placeholder="Ex.: Parasite"
-          />
-        </div>
-        <div class="filter">
-          <label for="filter-gender">Gender</label>
-          <select name="filter-gender" id="filter-gender">
-            <option value="all" selected>All</option>
-            <option value="femalee">Female</option>
-            <option value="genderless">Genderless</option>
-            <option value="male">Male</option>
-            <option value="unknown">Unknown</option>
-          </select>
-        </div>
-        <input
-          type="submit"
-          name="filters-apply"
-          id="filters-apply"
-          value="Apply filters"
-        />
-        <!--
+          <!--
             <input
               type="reset"
               name="filters-clear"
@@ -96,10 +96,11 @@
               value="Clear filters"
             />
             -->
+        </form>
       </section>
 
       <main id="contents">
-        <h1 id="title">No results found</h1>
+        <h1 id="title">Characters</h1>
         <div id="content" class="grid"></div>
       </main>
 
@@ -118,78 +119,79 @@
       <footer id="#footer"></footer>
     </div>
 
-    <script id="template-character" type="x-tmpl-mustache">
-      {{#.}}
-        <div class="card">
-          <h3 clas="name">{{name}}</h3>
-          <img
-            class="avatar"
-            src="{{image}}"
-          />
-          <ul class="infos">
-            {{#status}}
-            <li>Status: {{status}}</li>
-            {{/status}}
-            {{#specie}}
-              <li>Specie: {{specie}}</li>
-            {{/specie}}
-            {{#type}}
-            <li>Subspecie: {{type}}</li>
-            {{/type}}
-            {{#gender}}
-            <li>Gender: {{gender}}</li>
-            {{/gender}}
-            {{#origin.name}}
-            <li>Origin: {{origin.name}}</li>
-            {{/origin.name}}
-            {{#location.name}}
-            <li>Location: {{location.name}}</li>
-            {{/location.name}}
-            {{#episode.length}}
-            <li>Episodes: {{episode.length}}</li>
-            {{/episode.length}}
-          </ul>
-        </div>
-      {{/.}}
+    <script id="template-character" type="text/x-handlebars-template">
+      {{#if results}}
+        {{#each results}}
+          <div class="card">
+            <h3 clas="name">{{name}}</h3>
+            <img class="avatar" src="{{image}}" />
+            <ul class="infos">
+              {{#if status}}
+                <li>Status: {{status}}</li>
+              {{/if}}
+              {{#if specie}}
+                <li>Specie: {{specie}}</li>
+              {{/if}}
+              {{#if type}}
+                <li>Subspecie: {{type}}</li>
+              {{/if}}
+              {{#if gender}}
+                <li>Gender: {{gender}}</li>
+              {{/if}}
+              {{#if origin.name}}
+                <li>Origin: {{origin.name}}</li>
+              {{/if}}
+              {{#if location.name}}
+                <li>Location: {{location.name}}</li>
+              {{/if}}
+              {{#if episode.length}}
+                <li>Episodes: {{episode.length}}</li>
+              {{/if}}
+            </ul>
+          </div>
+        {{/each}}
+      {{else}}
+        No results found
+      {{/if}}
     </script>
 
-    <script id="template-location" type="x-tmpl-mustache">
-      {{#.}}
+    <script id="template-location" type="text/x-handlebars-template">
+      {{#each results}}
         <div class="card">
           <h3 clas="name">{{name}}</h3>
           <ul class="infos">
             {{#type}}
-            <li>Type: {{type}}</li>
+              <li>Type: {{type}}</li>
             {{/type}}
             {{#dimension}}
               <li>Dimension: {{dimension}}</li>
             {{/dimension}}
             {{#residents.length}}
-            <li>Residentss: {{residents.length}}</li>
+              <li>Residentss: {{residents.length}}</li>
             {{/residents.length}}
           </ul>
         </div>
-      {{/.}}
+        e
+      {{/each}}
     </script>
 
-    
-    <script id="template-episode" type="x-tmpl-mustache">
-      {{#.}}
+    <script id="template-episode" type="text/x-handlebars-template">
+      {{#each}}
         <div class="card">
           <h3 clas="name">{{name}}</h3>
           <ul class="infos">
             {{#air_date}}
-            <li>Air date: {{air_date}}</li>
+              <li>Air date: {{air_date}}</li>
             {{/air_date}}
             {{#episode}}
               <li>Episode: {{episode}}</li>
             {{/episode}}
             {{#characters.length}}
-            <li>Characters: {{characters.length}}</li>
+              <li>Characters: {{characters.length}}</li>
             {{/characters.length}}
           </ul>
         </div>
-      {{/.}}
+      {{/each}}
     </script>
   </body>
 </html>
