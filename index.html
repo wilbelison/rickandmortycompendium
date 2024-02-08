@@ -21,13 +21,19 @@
         <nav id="menu">
           <ul>
             <li>
-              <a href="./?category=characters" title="Characters">Characters</a>
+              <a href="./?filter-category=character" title="Characters"
+                >Characters</a
+              >
             </li>
             <li>
-              <a href="./?category=locations" title="Locations">Locations</a>
+              <a href="./?filter-category=location" title="Locations"
+                >Locations</a
+              >
             </li>
             <li>
-              <a href="./?category=episodes" title="Episodes">Episodes</a>
+              <a href="./?filter-category=episode" title="Episodes"
+                >Episodes</a
+              >
             </li>
           </ul>
         </nav>
@@ -36,6 +42,13 @@
       <section id="filters">
         <h2>Filters</h2>
         <form>
+          <input
+            type="hidden"
+            id="filter-category"
+            name="filter-category"
+            value="character"
+          />
+          <input type="hidden" id="filter-page" name="filter-page" value="0" />
           <div class="filter">
             <label for="filter-name">Name</label>
             <input

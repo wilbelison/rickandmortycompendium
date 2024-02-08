@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
-const category = urlParams.get("category") || "characters";
-const page = urlParams.get("page") || 1;
+const filterCategory = urlParams.get("filter-category") || "character";
+const filterPage = urlParams.get("filter-page") || 1;
 
 setPage = function (info) {
   console.log(info);
@@ -24,7 +24,7 @@ setPage = function (info) {
   });
 };
 
-const data = fetch("https://rickandmortyapi.com/api/character?page=" + page)
+const data = fetch("https://rickandmortyapi.com/api/" + filterCategory + "?page=" + filterPage)
   .then((response) => response.json())
   .then((response) => (content = response))
   .then(function () {
