@@ -3,8 +3,6 @@ const filterCategory = urlParams.get("filter-category") || "character";
 const filterPage = urlParams.get("filter-page") || 1;
 
 setPage = function (info) {
-  console.log(info);
-
   const pagination = document.querySelector("#pagination");
 
   const nextButton = pagination.querySelector(".next");
@@ -28,10 +26,11 @@ const data = fetch("https://rickandmortyapi.com/api/" + filterCategory + "?page=
   .then((response) => response.json())
   .then((response) => (content = response))
   .then(function () {
+    console.log(content)
     const template = Handlebars.compile(
-      document.querySelector("#template-character").innerHTML
+      document.querySelector("#template-" + filterCategory).innerHTML
     );
-    const container = document.querySelector("#content");
+    const container = document.querySelector("#contents");
     container.innerHTML = template(content);
     setPage(content.info);
   });
