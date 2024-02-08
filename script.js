@@ -3,6 +3,10 @@ const filterCategory = urlParams.get("filter-category") || "character";
 const filterPage = urlParams.get("filter-page") || 1;
 
 setPage = function (info) {
+  const menu = document.querySelector("#menu");
+
+  menu.querySelector('a.' + filterCategory).classList.add('active');
+
   const pagination = document.querySelector("#pagination");
 
   const nextButton = pagination.querySelector(".next");
