@@ -22,7 +22,7 @@
           <ul>
             <li>
               <a
-                href="./?filter-category=character"
+                href="./?category=character"
                 title="Characters"
                 class="character"
                 >Characters</a
@@ -30,7 +30,7 @@
             </li>
             <li>
               <a
-                href="./?filter-category=location"
+                href="./?category=location"
                 title="Locations"
                 class="location"
                 >Locations</a
@@ -38,7 +38,7 @@
             </li>
             <li>
               <a
-                href="./?filter-category=episode"
+                href="./?category=episode"
                 title="Episodes"
                 class="episode"
                 >Episodes</a
@@ -53,23 +53,23 @@
         <form>
           <input
             type="hidden"
-            id="filter-category"
-            name="filter-category"
+            id="category"
+            name="category"
             value="character"
           />
-          <input type="hidden" id="filter-page" name="filter-page" value="1" />
+          <input type="hidden" id="page" name="page" value="1" />
           <div class="filter">
-            <label for="filter-name">Name</label>
+            <label for="name">Name</label>
             <input
               type="text"
-              id="filter-name"
-              name="filter-name"
+              id="name"
+              name="name"
               placeholder="Ex.: Rick Sanchez"
             />
           </div>
           <div class="filter">
-            <label for="filter-status">Status</label>
-            <select name="filter-status" id="filter-status">
+            <label for="status">Status</label>
+            <select name="status" id="status">
               <option value="all" selected>All</option>
               <option value="alive">Alive</option>
               <option value="dead">Dead</option>
@@ -77,26 +77,26 @@
             </select>
           </div>
           <div class="filter">
-            <label for="filter-specie">Specie</label>
+            <label for="specie">Specie</label>
             <input
               type="text"
-              id="filter-specie"
-              name="filter-specie"
+              id="specie"
+              name="specie"
               placeholder="Ex.: Alien"
             />
           </div>
           <div class="filter">
-            <label for="filter-subspecie">Subspecie</label>
+            <label for="subspecie">Subspecie</label>
             <input
               type="text"
-              id="filter-subspecie"
-              name="filter-subspecie"
+              id="subspecie"
+              name="subspecie"
               placeholder="Ex.: Parasite"
             />
           </div>
           <div class="filter">
-            <label for="filter-gender">Gender</label>
-            <select name="filter-gender" id="filter-gender">
+            <label for="gender">Gender</label>
+            <select name="gender" id="filter-gender">
               <option value="all" selected>All</option>
               <option value="femalee">Female</option>
               <option value="genderless">Genderless</option>
@@ -106,8 +106,8 @@
           </div>
           <input
             type="submit"
-            name="filters-apply"
-            id="filters-apply"
+            name="apply"
+            id="apply"
             value="Apply filters"
           />
         </form>
@@ -210,22 +210,22 @@
         <script id="template-pagination" type="text/x-handlebars-template">
           {{#if info.prev}}
             <a
-              href="./?filter-page=1"
+              href="./?page=1"
               title="previous page"
               class="arrow prev"
             >&larr;</a>
           {{/if}}
           Page
           <select name="page" id="page">
-            {{#for 1 info.pages 1}}
-              <option value="{{this}}">{{this}}</option>
-            {{/for}}
+            {{#repeat info.pages}}
+                <option value="{{this}}">{{this}}</option>
+            {{/repeat}}
           </select>
           of
           <span class="total">{{info.pages}}</span>
           {{#if info.next}}
             <a
-              href="./?filter-page=2"
+              href="./?page=2"
               title="next page"
               class="arrow next"
             >&rarr;</a>
