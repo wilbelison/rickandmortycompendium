@@ -4,8 +4,6 @@ const filterPage = urlParams.get("page") || 1;
 urlParams.set("category", filterCategory);
 urlParams.set("page", filterPage);
 
-console.log(urlParams.toString());
-
 Handlebars.registerHelper("repeat", function (n, options) {
   var out = "";
   for (var i = 1; i < n + 1; ++i) out += options.fn(i);
@@ -45,7 +43,6 @@ const data = fetch(
 
     if (selectPage) {
       selectPage.addEventListener("change", () => {
-        console.log(selectPage.value);
         urlParams.set("page", selectPage.value);
         window.location.href = "/?" + urlParams.toString();
       });
@@ -53,23 +50,23 @@ const data = fetch(
       selectPage
         .querySelector("option:nth-child(" + filterPage + ")")
         .setAttribute("selected", "selected");
-    }
 
-    const nextButton = pagination.querySelector(".next");
+      const nextButton = pagination.querySelector(".next");
 
-    if (nextButton) {
-      nextButton.addEventListener("click", () => {
-        urlParams.set("page", parseInt(filterPage) + 1);
-        window.location.href = "/?" + urlParams.toString();
-      });
-    }
+      if (nextButton) {
+        nextButton.addEventListener("click", () => {
+          urlParams.set("page", parseInt(filterPage) + 1);
+          window.location.href = "/?" + urlParams.toString();
+        });
+      }
 
-    const prevButton = pagination.querySelector(".prev");
+      const prevButton = pagination.querySelector(".prev");
 
-    if (prevButton) {
-      prevButton.addEventListener("click", () => {
-        urlParams.set("page", parseInt(filterPage) - 1);
-        window.location.href = "/?" + urlParams.toString();
-      });
+      if (prevButton) {
+        prevButton.addEventListener("click", () => {
+          urlParams.set("page", parseInt(filterPage) - 1);
+          window.location.href = "/?" + urlParams.toString();
+        });
+      }
     }
   });

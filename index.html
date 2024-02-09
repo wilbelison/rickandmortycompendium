@@ -50,7 +50,7 @@
 
       <section id="filters">
         <h2>Filters</h2>
-        <form>
+        <form action="#">
           <input
             type="hidden"
             id="category"
@@ -115,7 +115,7 @@
         <script id="template-character" type="text/x-handlebars-template">
           <h1 id="title">Characters</h1>
           {{#if results}}
-            <span class="results">Page <span class="page"></span> of {{info.pages}} ({{info.count}} results found)</span>
+            <div class="results">Page <span class="page"></span> of {{info.pages}} <span class="count">({{info.count}} results found)</span></div>
             <div id="content" class="grid">
               {{#each results}}
                 <div class="card">
@@ -138,7 +138,7 @@
                       <li><span class="label">Origin</span> {{origin.name}}</li>
                     {{/if}}
                     {{#if location.name}}
-                      <li><span class="label">Location</span> {{location.name}}</li>
+                      <li><span class="label">Last known location</span> {{location.name}}</li>
                     {{/if}}
                     {{#if episode.length}}
                       <li><span class="label">Episodes</span> {{episode.length}}</li>
@@ -155,7 +155,7 @@
         <script id="template-location" type="text/x-handlebars-template">
           <h1 id="title">Locations</h1>
           {{#if results}}
-            <span class="results">{{info.count}} results found</span>
+            <div class="results">Page <span class="page"></span> of {{info.pages}} <span class="count">({{info.count}} results found)</span></div>
             <div id="content" class="grid">
               {{#each results}}
                 <div class="card">
@@ -182,7 +182,7 @@
         <script id="template-episode" type="text/x-handlebars-template">
           <h1 id="title">Episodes</h1>
           {{#if results}}
-            <span class="results">{{info.count}} results found</span>
+            <div class="results">Page <span class="page"></span> of {{info.pages}} <span class="count">({{info.count}} results found)</span></div>
             <div id="content" class="grid">
               {{#each results}}
                 <div class="card">
