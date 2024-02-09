@@ -110,7 +110,7 @@ header {
 #logo {
   width: 285px;
   text-align: right;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 #logo img {
@@ -176,7 +176,8 @@ h1 {
 
 .avatar {
   width: 184px;
-  border-radius: 50%;
+  border-radius: 50% 40% 50% 40%;
+  border: solid 4px #bfde42;
 }
 
 .grid {
@@ -206,21 +207,23 @@ h1 {
 .grid .card h3 {
   text-align: center;
   font-size: 24px;
+  color: #bfde42;
 }
 
 .grid .card .infos {
   display: grid;
-  gap: 8px;
+  gap: 16px;
   margin: 0;
   padding: 0;
+  color: #fff;
 }
 
 .grid .card .infos li {
   list-style: none;
 }
 
-.grid .card .infos .title {
-  font-size: 12px;
+.grid .card .infos .label {
+  font-size: 14px;
   color: #7a9499;
   float: left;
   width: 100%;;

@@ -123,25 +123,25 @@
                   <img class="avatar" src="{{image}}" />
                   <ul class="infos">
                     {{#if status}}
-                      <li><span class="title">Status:</span> {{status}}</li>
+                      <li><span class="label">Status</span> {{status}}</li>
                     {{/if}}
                     {{#if species}}
-                      <li><span class="title">Specie:</span> {{species}}</li>
+                      <li><span class="label">Specie</span> {{species}}</li>
                     {{/if}}
                     {{#if type}}
-                      <li><span class="title">Subspecie:</span> {{type}}</li>
+                      <li><span class="label">Subspecie</span> {{type}}</li>
                     {{/if}}
                     {{#if gender}}
-                      <li><span class="title">Gender:</span> {{gender}}</li>
+                      <li><span class="label">Gender</span> {{gender}}</li>
                     {{/if}}
                     {{#if origin.name}}
-                      <li><span class="title">Origin:</span> {{origin.name}}</li>
+                      <li><span class="label">Origin</span> {{origin.name}}</li>
                     {{/if}}
                     {{#if location.name}}
-                      <li><span class="title">Location:</span> {{location.name}}</li>
+                      <li><span class="label">Location</span> {{location.name}}</li>
                     {{/if}}
                     {{#if episode.length}}
-                      <li><span class="title">Episodes:</span> {{episode.length}}</li>
+                      <li><span class="label">Episodes</span> {{episode.length}}</li>
                     {{/if}}
                   </ul>
                 </div>
@@ -162,13 +162,13 @@
                   <h3 clas="name">{{name}}</h3>
                   <ul class="infos">
                     {{#if type}}
-                      <li>Type: {{type}}</li>
+                      <li><span class="label">Type</span> {{type}}</li>
                     {{/if}}
                     {{#if dimension}}
-                      <li>Dimension: {{dimension}}</li>
+                      <li><span class="label">Dimension</span> {{dimension}}</li>
                     {{/if}}
                     {{#if residents.length}}
-                      <li>Residents: {{residents.length}}</li>
+                      <li><span class="label">Residents</span> {{residents.length}}</li>
                     {{/if}}
                   </ul>
                 </div>
@@ -189,13 +189,13 @@
                   <h3 clas="name">{{name}}</h3>
                   <ul class="infos">
                     {{#if air_date}}
-                      <li>Air date: {{air_date}}</li>
+                      <li><span class="label">Air date</span> {{air_date}}</li>
                     {{/if}}
                     {{#if episode}}
-                      <li>Episode: {{episode}}</li>
+                      <li><span class="label">Episode</span> {{episode}}</li>
                     {{/if}}
                     {{#if characters.length}}
-                      <li>Characters: {{characters.length}}</li>
+                      <li><span class="label">Characters</span>< {{characters.length}}/li>
                     {{/if}}
                   </ul>
                 </div>
