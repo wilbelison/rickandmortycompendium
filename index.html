@@ -64,41 +64,41 @@
               type="text"
               id="name"
               name="name"
-              placeholder="Ex.: Rick Sanchez"
+              placeholder="Ex.: Rick, Morty, Summer..."
             />
           </div>
           <div class="filter">
             <label for="status">Status</label>
             <select name="status" id="status">
-              <option value="all" selected>All</option>
+              <option value="" selected>All</option>
               <option value="alive">Alive</option>
               <option value="dead">Dead</option>
-              <option value="unknownd">Unknown</option>
+              <option value="unknown">Unknown</option>
             </select>
           </div>
           <div class="filter">
-            <label for="specie">Specie</label>
+            <label for="species">Specie</label>
             <input
               type="text"
-              id="specie"
-              name="specie"
-              placeholder="Ex.: Alien"
+              id="species"
+              name="species"
+              placeholder="Ex.: Alien, human, animal..."
             />
           </div>
           <div class="filter">
-            <label for="subspecie">Subspecie</label>
+            <label for="type">Subspecie</label>
             <input
               type="text"
-              id="subspecie"
-              name="subspecie"
-              placeholder="Ex.: Parasite"
+              id="type"
+              name="type"
+              placeholder="Ex.: Parasite, Human with..."
             />
           </div>
           <div class="filter">
             <label for="gender">Gender</label>
             <select name="gender" id="filter-gender">
-              <option value="all" selected>All</option>
-              <option value="femalee">Female</option>
+              <option value="" selected>All</option>
+              <option value="female">Female</option>
               <option value="genderless">Genderless</option>
               <option value="male">Male</option>
               <option value="unknown">Unknown</option>
@@ -106,8 +106,6 @@
           </div>
           <input
             type="submit"
-            name="apply"
-            id="apply"
             value="Apply filters"
           />
         </form>
@@ -117,6 +115,7 @@
         <script id="template-character" type="text/x-handlebars-template">
           <h1 id="title">Characters</h1>
           {{#if results}}
+            <span class="results">{{info.count}} results found</span>
             <div id="content" class="grid">
               {{#each results}}
                 <div class="card">
@@ -124,38 +123,39 @@
                   <img class="avatar" src="{{image}}" />
                   <ul class="infos">
                     {{#if status}}
-                      <li>Status: {{status}}</li>
+                      <li><span class="title">Status:</span> {{status}}</li>
                     {{/if}}
-                    {{#if specie}}
-                      <li>Specie: {{specie}}</li>
+                    {{#if species}}
+                      <li><span class="title">Specie:</span> {{species}}</li>
                     {{/if}}
                     {{#if type}}
-                      <li>Subspecie: {{type}}</li>
+                      <li><span class="title">Subspecie:</span> {{type}}</li>
                     {{/if}}
                     {{#if gender}}
-                      <li>Gender: {{gender}}</li>
+                      <li><span class="title">Gender:</span> {{gender}}</li>
                     {{/if}}
                     {{#if origin.name}}
-                      <li>Origin: {{origin.name}}</li>
+                      <li><span class="title">Origin:</span> {{origin.name}}</li>
                     {{/if}}
                     {{#if location.name}}
-                      <li>Location: {{location.name}}</li>
+                      <li><span class="title">Location:</span> {{location.name}}</li>
                     {{/if}}
                     {{#if episode.length}}
-                      <li>Episodes: {{episode.length}}</li>
+                      <li><span class="title">Episodes:</span> {{episode.length}}</li>
                     {{/if}}
                   </ul>
                 </div>
               {{/each}}
             </div>
           {{else}}
-            No results found
+            <span class="results">No results found</span>
           {{/if}}
         </script>
 
         <script id="template-location" type="text/x-handlebars-template">
           <h1 id="title">Locations</h1>
           {{#if results}}
+            <span class="results">{{info.count}} results found</span>
             <div id="content" class="grid">
               {{#each results}}
                 <div class="card">
@@ -182,6 +182,7 @@
         <script id="template-episode" type="text/x-handlebars-template">
           <h1 id="title">Episodes</h1>
           {{#if results}}
+            <span class="results">{{info.count}} results found</span>
             <div id="content" class="grid">
               {{#each results}}
                 <div class="card">
@@ -208,27 +209,27 @@
 
       <section id="pagination">
         <script id="template-pagination" type="text/x-handlebars-template">
-          {{#if info.prev}}
-            <a
-              href="./?page=1"
-              title="previous page"
-              class="arrow prev"
-            >&larr;</a>
-          {{/if}}
-          Page
-          <select name="page" id="page">
-            {{#repeat info.pages}}
-                <option value="{{this}}">{{this}}</option>
-            {{/repeat}}
-          </select>
-          of
-          <span class="total">{{info.pages}}</span>
-          {{#if info.next}}
-            <a
-              href="./?page=2"
-              title="next page"
-              class="arrow next"
-            >&rarr;</a>
+          {{#if results}}
+            {{#if info.prev}}
+              <a
+                title="previous page"
+                class="arrow prev"
+              >&larr;</a>
+            {{/if}}
+            Page
+            <select name="page" id="page">
+              {{#repeat info.pages}}
+                  <option value="{{this}}">{{this}}</option>
+              {{/repeat}}
+            </select>
+            of
+            <span class="total">{{info.pages}}</span>
+            {{#if info.next}}
+              <a
+                title="next page"
+                class="arrow next"
+              >&rarr;</a>
+            {{/if}}
           {{/if}}
         </script>
       </section>
