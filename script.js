@@ -10,7 +10,7 @@ Handlebars.registerHelper('for', function(from, to, incr, block) {
 });
 
 const data = fetch(
-  "https://rickandmortyapi.com/api/" + filterCategory + "?page=" + filterPage
+  "https://rickandmortyapi.com/api/" + filterCategory + '?page=' + filterPage
 )
   .then((response) => response.json())
   .then((response) => (content = response))
