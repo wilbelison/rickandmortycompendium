@@ -1,4 +1,4 @@
-const urlParams = new URLSearchParams(window.location.search);
+let urlParams = new URLSearchParams(window.location.search);
 const filterCategory = urlParams.get("category") || "character";
 const filterPage = urlParams.get("page") || 1;
 urlParams.set("category", filterCategory);
@@ -13,12 +13,14 @@ Handlebars.registerHelper("repeat", function (n, options) {
 });
 
 const data = fetch(
-  "https://rickandmortyapi.com/api/" + filterCategory + "?" + urlParams.toString()
+  "https://rickandmortyapi.com/api/" +
+    filterCategory +
+    "?" +
+    urlParams.toString()
 )
   .then((response) => response.json())
   .then((response) => (content = response))
   .then(function () {
-
     console.log(content);
 
     const menu = document.querySelector("#menu");
@@ -40,40 +42,34 @@ const data = fetch(
     pagination.innerHTML = paginationTemplate(content);
 
     const selectPage = pagination.querySelector("#page");
-    
-    if(selectPage) {
 
+    if (selectPage) {
       selectPage.addEventListener("change", () => {
-        const newPage = urlParams.set("page", selectPage.value);
-        console.log(newPage);
-        console.log(newPage.toString());
-        window.location.href = newPage.toString();
+        console.log(selectPage.value);
+        urlParams.set("page", selectPage.value);
+        window.location.href = "/?" + urlParams.toString();
       });
-   
+
       selectPage
         .querySelector("option:nth-child(" + filterPage + ")")
-        .setAttribute('selected', 'selected');
-
+        .setAttribute("selected", "selected");
     }
 
     const nextButton = pagination.querySelector(".next");
 
-    if(nextButton) {
-    
+    if (nextButton) {
       nextButton.addEventListener("click", () => {
-        alert("next");
+        urlParams.set("page", parseInt(filterPage) + 1);
+        window.location.href = "/?" + urlParams.toString();
       });
-
     }
 
     const prevButton = pagination.querySelector(".prev");
-      
-    if(prevButton) {
 
+    if (prevButton) {
       prevButton.addEventListener("click", () => {
-        alert("prev");
+        urlParams.set("page", parseInt(filterPage) - 1);
+        window.location.href = "/?" + urlParams.toString();
       });
-
     }
-
   });

@@ -239,6 +239,7 @@ h1 {
 
 #pagination .arrow {
   font-size: 36px;
+  cursor: pointer;
 }
 
 #pagination arrow.disabled {
