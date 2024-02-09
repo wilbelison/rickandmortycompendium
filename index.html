@@ -115,7 +115,7 @@
         <script id="template-character" type="text/x-handlebars-template">
           <h1 id="title">Characters</h1>
           {{#if results}}
-            <span class="results">{{info.count}} results found</span>
+            <span class="results">Page <span class="page"></span> of {{info.pages}} ({{info.count}} results found)</span>
             <div id="content" class="grid">
               {{#each results}}
                 <div class="card">
@@ -175,7 +175,7 @@
               {{/each}}
             </div>
           {{else}}
-            No results found
+            <span class="results noresults">No results found</span>
           {{/if}}
         </script>
 
@@ -195,14 +195,14 @@
                       <li><span class="label">Episode</span> {{episode}}</li>
                     {{/if}}
                     {{#if characters.length}}
-                      <li><span class="label">Characters</span>< {{characters.length}}/li>
+                      <li><span class="label">Characters</span> {{characters.length}}</li>
                     {{/if}}
                   </ul>
                 </div>
               {{/each}}
             </div>
           {{else}}
-            No results found
+            <span class="results noresults">No results found</span>
           {{/if}}
         </script>
       </main>
