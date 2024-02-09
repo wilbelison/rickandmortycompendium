@@ -21,16 +21,28 @@
         <nav id="menu">
           <ul>
             <li>
-              <a href="./?filter-category=character" title="Characters" class="character">Characters</a
+              <a
+                href="./?filter-category=character"
+                title="Characters"
+                class="character"
+                >Characters</a
               >
             </li>
             <li>
-              <a href="./?filter-category=location" title="Locations" class="location"
+              <a
+                href="./?filter-category=location"
+                title="Locations"
+                class="location"
                 >Locations</a
               >
             </li>
             <li>
-              <a href="./?filter-category=episode" title="Episodes" class="episode">Episodes</a>
+              <a
+                href="./?filter-category=episode"
+                title="Episodes"
+                class="episode"
+                >Episodes</a
+              >
             </li>
           </ul>
         </nav>
@@ -101,113 +113,135 @@
         </form>
       </section>
 
-      <main id="contents"></main>
+      <main id="contents">
+        <script id="template-character" type="text/x-handlebars-template">
+          <h1 id="title">Characters</h1>
+          {{#if results}}
+            <div id="content" class="grid">
+              {{#each results}}
+                <div class="card">
+                  <h3 clas="name">{{name}}</h3>
+                  <img class="avatar" src="{{image}}" />
+                  <ul class="infos">
+                    {{#if status}}
+                      <li>Status: {{status}}</li>
+                    {{/if}}
+                    {{#if specie}}
+                      <li>Specie: {{specie}}</li>
+                    {{/if}}
+                    {{#if type}}
+                      <li>Subspecie: {{type}}</li>
+                    {{/if}}
+                    {{#if gender}}
+                      <li>Gender: {{gender}}</li>
+                    {{/if}}
+                    {{#if origin.name}}
+                      <li>Origin: {{origin.name}}</li>
+                    {{/if}}
+                    {{#if location.name}}
+                      <li>Location: {{location.name}}</li>
+                    {{/if}}
+                    {{#if episode.length}}
+                      <li>Episodes: {{episode.length}}</li>
+                    {{/if}}
+                  </ul>
+                </div>
+              {{/each}}
+            </div>
+          {{else}}
+            No results found
+          {{/if}}
+        </script>
+
+        <script id="template-location" type="text/x-handlebars-template">
+          <h1 id="title">Locations</h1>
+          {{#if results}}
+            <div id="content" class="grid">
+              {{#each results}}
+                <div class="card">
+                  <h3 clas="name">{{name}}</h3>
+                  <ul class="infos">
+                    {{#if type}}
+                      <li>Type: {{type}}</li>
+                    {{/if}}
+                    {{#if dimension}}
+                      <li>Dimension: {{dimension}}</li>
+                    {{/if}}
+                    {{#if residents.length}}
+                      <li>Residentss: {{residents.length}}</li>
+                    {{/if}}
+                  </ul>
+                </div>
+              {{/each}}
+            </div>
+          {{else}}
+            No results found
+          {{/if}}
+        </script>
+
+        <script id="template-episode" type="text/x-handlebars-template">
+          <h1 id="title">Episodes</h1>
+          {{#if results}}
+            <div id="content" class="grid">
+              {{#each results}}
+                <div class="card">
+                  <h3 clas="name">{{name}}</h3>
+                  <ul class="infos">
+                    {{#if air_date}}
+                      <li>Air date: {{air_date}}</li>
+                    {{/if}}
+                    {{#if episode}}
+                      <li>Episode: {{episode}}</li>
+                    {{/if}}
+                    {{#if characters.length}}
+                      <li>Characters: {{characters.length}}</li>
+                    {{/if}}
+                  </ul>
+                </div>
+              {{/each}}
+            </div>
+          {{else}}
+            No results found
+          {{/if}}
+        </script>
+      </main>
 
       <section id="pagination">
-        <a href="./?filter-page=1" title="previous page" class="arrow prev"><</a>
-        Page
-        <select name="page" id="page">
-          <option value="1" selected>1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        of <span class="total">99</span>
-        <a href="./?filter-page=2" title="next page" class="arrow next">></a>
+        <script id="template-pagination" type="text/x-handlebars-template">
+          {{#if info.prev}}
+            <a
+              href="./?filter-page=1"
+              title="previous page"
+              class="arrow prev"
+            >&larr;</a>
+          {{/if}}
+          Page
+          <select name="page" id="page">
+            {{#for 1 info.pages 1}}
+              <option value="{{this}}">{{this}}</option>
+            {{/for}}
+          </select>
+          of
+          <span class="total">{{info.pages}}</span>
+          {{#if info.next}}
+            <a
+              href="./?filter-page=2"
+              title="next page"
+              class="arrow next"
+            >&rarr;</a>
+          {{/if}}
+        </script>
       </section>
 
-      <footer id="footer">Developed with ❤ by <a href="https://www.linkedin.com/in/wilbelison" target="_blank" title="Wilbelison Junior's LinkedIn profile">Wilbelison Junior</a></footer>
+      <footer id="footer">
+        Developed with ❤ by
+        <a
+          href="https://www.linkedin.com/in/wilbelison"
+          target="_blank"
+          title="Wilbelison Junior's LinkedIn profile"
+          >Wilbelison Junior</a
+        >
+      </footer>
     </div>
-
-    <script id="template-character" type="text/x-handlebars-template">
-      <h1 id="title">Characters</h1>
-      {{#if results}}
-        <div id="content" class="grid">
-          {{#each results}}
-            <div class="card">
-              <h3 clas="name">{{name}}</h3>
-              <img class="avatar" src="{{image}}" />
-              <ul class="infos">
-                {{#if status}}
-                  <li>Status: {{status}}</li>
-                {{/if}}
-                {{#if specie}}
-                  <li>Specie: {{specie}}</li>
-                {{/if}}
-                {{#if type}}
-                  <li>Subspecie: {{type}}</li>
-                {{/if}}
-                {{#if gender}}
-                  <li>Gender: {{gender}}</li>
-                {{/if}}
-                {{#if origin.name}}
-                  <li>Origin: {{origin.name}}</li>
-                {{/if}}
-                {{#if location.name}}
-                  <li>Location: {{location.name}}</li>
-                {{/if}}
-                {{#if episode.length}}
-                  <li>Episodes: {{episode.length}}</li>
-                {{/if}}
-              </ul>
-            </div>
-          {{/each}}
-        </div>
-      {{else}}
-        No results found
-      {{/if}}
-    </script>
-
-    <script id="template-location" type="text/x-handlebars-template">
-      <h1 id="title">Locations</h1>
-      {{#if results}}
-        <div id="content" class="grid">
-          {{#each results}}
-            <div class="card">
-              <h3 clas="name">{{name}}</h3>
-              <ul class="infos">
-                {{#if type}}
-                  <li>Type: {{type}}</li>
-                {{/if}}
-                {{#if dimension}}
-                  <li>Dimension: {{dimension}}</li>
-                {{/if}}
-                {{#if residents.length}}
-                  <li>Residentss: {{residents.length}}</li>
-                {{/if}}
-              </ul>
-            </div>
-          {{/each}}
-        </div>
-      {{else}}
-        No results found
-      {{/if}}
-    </script>
-
-    <script id="template-episode" type="text/x-handlebars-template">
-      <h1 id="title">Episodes</h1>
-      {{#if results}}
-        <div id="content" class="grid">
-          {{#each results}}
-            <div class="card">
-              <h3 clas="name">{{name}}</h3>
-              <ul class="infos">
-                {{#if air_date}}
-                  <li>Air date: {{air_date}}</li>
-                {{/if}}
-                {{#if episode}}
-                  <li>Episode: {{episode}}</li>
-                {{/if}}
-                {{#if characters.length}}
-                  <li>Characters: {{characters.length}}</li>
-                {{/if}}
-              </ul>
-            </div>
-          {{/each}}
-        </div>
-      {{else}}
-        No results found
-      {{/if}}
-    </script>
   </body>
 </html>

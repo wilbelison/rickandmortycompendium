@@ -258,4 +258,8 @@ h1 {
     align-items: center;
     padding-inline-start: 0px;
   }
+
+  #menu .active {
+    border-bottom: none;
+  }
 }
