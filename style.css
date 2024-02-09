@@ -13,6 +13,15 @@ html {
   background-color: #071417;
   margin: 0;
   padding: 0;
+  text-shadow:
+  -1px -1px 0 #071417,
+   0   -1px 0 #071417,
+   1px -1px 0 #071417,
+   1px  0   0 #071417,
+   1px  1px 0 #071417,
+   0    1px 0 #071417,
+  -1px  1px 0 #071417,
+  -1px  0   0 #071417;
 }
 
 .wrapper {
