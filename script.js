@@ -44,7 +44,7 @@ const data = fetch(
     if (selectPage) {
       selectPage.addEventListener("change", () => {
         urlParams.set("page", selectPage.value);
-        window.location.href = "/?" + urlParams.toString();
+        window.location.href = "./?" + urlParams.toString();
       });
 
       selectPage
@@ -56,7 +56,7 @@ const data = fetch(
       if (nextButton) {
         nextButton.addEventListener("click", () => {
           urlParams.set("page", parseInt(filterPage) + 1);
-          window.location.href = "/?" + urlParams.toString();
+          window.location.href = "./?" + urlParams.toString();
         });
       }
 
@@ -65,7 +65,7 @@ const data = fetch(
       if (prevButton) {
         prevButton.addEventListener("click", () => {
           urlParams.set("page", parseInt(filterPage) - 1);
-          window.location.href = "/?" + urlParams.toString();
+          window.location.href = "./?" + urlParams.toString();
         });
       }
     }
