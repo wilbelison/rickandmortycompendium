@@ -28,15 +28,20 @@ const data = fetch(
       document.querySelector("#template-" + filterCategory).innerHTML
     );
 
+    const filtersTemplate = Handlebars.compile(
+      document.querySelector("#template-filters-" + filterCategory).innerHTML
+    );
+
     const paginationTemplate = Handlebars.compile(
       document.querySelector("#template-pagination").innerHTML
     );
 
     const container = document.querySelector("#contents");
+    const filtersContainer = document.querySelector("#filters .templates");
     const pagination = document.querySelector("#pagination");
-    const filters = document.querySelector("#filters");
 
     container.innerHTML = contentTemplate(content);
+    filtersContainer.innerHTML = filtersTemplate(content);
     pagination.innerHTML = paginationTemplate(content);
 
     const selectPage = pagination.querySelector("#page");
