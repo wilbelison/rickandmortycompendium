@@ -51,6 +51,9 @@ const data = fetch(
         .querySelector("option:nth-child(" + filterPage + ")")
         .setAttribute("selected", "selected");
 
+      const resultsPage = document.querySelector(".results .page");
+      resultsPage.innerHTML = filterPage;
+
       const nextButton = pagination.querySelector(".next");
 
       if (nextButton) {
