@@ -39,6 +39,7 @@ html {
 }
 
 #header {
+  gap: 80px;
   grid-area: header;
 }
 #filters {
