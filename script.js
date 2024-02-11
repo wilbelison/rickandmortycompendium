@@ -1,8 +1,10 @@
 let urlParams = new URLSearchParams(window.location.search);
 const filterCategory = urlParams.get("category") || "character";
 const filterPage = urlParams.get("page") || 1;
+const filterContent = urlParams.get("content") || "";
 urlParams.set("category", filterCategory);
 urlParams.set("page", filterPage);
+urlParams.delete("content");
 
 Handlebars.registerHelper("repeat", function (n, options) {
   var out = "";
@@ -10,12 +12,17 @@ Handlebars.registerHelper("repeat", function (n, options) {
   return out;
 });
 
-const data = fetch(
+const apiURL =
   "https://rickandmortyapi.com/api/" +
-    filterCategory +
-    "?" +
-    urlParams.toString()
-)
+  filterCategory +
+  "/" +
+  filterContent +
+  "?" +
+  urlParams.toString();
+
+console.log(apiURL);
+
+const data = fetch(apiURL)
   .then((response) => response.json())
   .then((response) => (content = response))
   .then(function () {

@@ -11,6 +11,7 @@ src: url('./calligraphr.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
   box-sizing: border-box;
   margin: 0;
   border: 0;
+  transition-duration: 0.5s;
 }
 
 body,
@@ -33,9 +34,13 @@ html {
   -1px  0   0 #071417;
 }
 
+body {
+  padding: 40px;
+}
+
 .wrapper {
   max-width: 1440px;
-  margin: 80px;
+  margin: 0 auto;
 }
 
 #header {
@@ -56,7 +61,6 @@ html {
 }
 
 #base {
-  margin: 40px auto;
   display: grid;
   grid-template-columns: 280px auto;
   grid-template-rows: auto;
@@ -292,10 +296,12 @@ h1 {
 }
 
 @media only screen and (max-width: 1024px) {
+  body {
+    padding: 40px 0;
+  }
   #base {
     display: flex;
     flex-direction: column;
-    padding: 20px;
     margin: 0;
     gap: 40px 0;
   }
