@@ -6,10 +6,3 @@ src: url('./calligraphr.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
      url('./calligraphr.woff') format('woff'), /* Pretty Modern Browsers */
      url('./calligraphr.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  border: 0;
-  transition-duration: 0.5s;
-}

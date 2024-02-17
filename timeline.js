@@ -1,44 +1,66 @@
-Handlebars.registerHelper("repeat", function (n, options) {
-  var out = "";
-  for (var i = 1; i < n + 1; ++i) out += options.fn(i);
-  return out;
-});
+let data = {};
 
-let characters = {};
-let episodes = {};
+data.characters = {};
+data.episodes = {};
+data.locations = {};
 
-const apiCharacters = fetch("https://rickandmortyapi.com/api/character?page=1")
+const urlParseInt = (str) => parseInt(str.split(/[/]+/).pop());
+
+const dataCharacters = fetch("https://rickandmortyapi.com/api/character")
   .then((response) => response.json())
-  .then((response) => (content = response))
-  .then(function () {
-    for (page = 1; page < content.info.pages + 1; page++) {
-      const data = fetch("https://rickandmortyapi.com/api/character?page=" + page)
+  .then((response) => {
+    for (page = 1; page <= response.info.pages; page++) {
+      const pageData = fetch(
+        "https://rickandmortyapi.com/api/character?page=" + page
+      )
         .then((response) => response.json())
-        .then((response) => (content = response))
-        .then(function () {
-            for (i = 0; i < content.results.length; i++) {
-                characters[content.results[i].id] = content.results[i];
-            }
+        .then((response) => {
+          response.results.forEach((result) => {
+            result.episode = result.episode.map((episode) =>
+              urlParseInt(episode)
+            );
+            data.characters[result.id] = result;
+          });
         });
     }
-  }).then(function () {
-    console.log(characters);
-});
+  });
 
-const apiEpisodes = fetch("https://rickandmortyapi.com/api/episode?page=1")
+const dataEpisodes = fetch("https://rickandmortyapi.com/api/episode")
   .then((response) => response.json())
-  .then((response) => (content = response))
-  .then(function () {
-    for (page = 1; page < content.info.pages + 1; page++) {
-      const data = fetch("https://rickandmortyapi.com/api/episode?page=" + page)
+  .then((response) => {
+    for (page = 1; page <= response.info.pages; page++) {
+      const pageData = fetch(
+        "https://rickandmortyapi.com/api/episode?page=" + page
+      )
         .then((response) => response.json())
-        .then((response) => (content = response))
-        .then(function () {
-            for (i = 0; i < content.results.length; i++) {
-                episodes[content.results[i].id] = content.results[i];
-            }
+        .then((response) => {
+          response.results.forEach((result) => {
+            result.characters = result.characters.map((character) =>
+              urlParseInt(character)
+            );
+            data.episodes[result.id] = result;
+          });
         });
     }
-  }).then(function () {
-    console.log(episodes);
-});
+  });
+
+const dataLocations = fetch("https://rickandmortyapi.com/api/location")
+  .then((response) => response.json())
+  .then((response) => {
+    for (page = 1; page <= response.info.pages; page++) {
+      const pageData = fetch(
+        "https://rickandmortyapi.com/api/location?page=" + page
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          response.results.forEach((result) => {
+            result.residents = result.residents.map((character) =>
+              urlParseInt(character)
+            );
+            data.locations[result.id] = result;
+          });
+        });
+    }
+  });
+
+console.log(data);
