@@ -7,8 +7,9 @@ data.locations = {};
 const urlParseInt = (str) => parseInt(str.split(/[/]+/).pop());
 
 const fetchRickAndMorty = async () => {
-
-  const dataCharacters = await fetch("https://rickandmortyapi.com/api/character")
+  const dataCharacters = await fetch(
+    "https://rickandmortyapi.com/api/character"
+  )
     .then((response) => response.json())
     .then((response) => {
       for (page = 1; page <= response.info.pages; page++) {
@@ -17,6 +18,8 @@ const fetchRickAndMorty = async () => {
         )
           .then((response) => response.json())
           .then((response) => {
+            data.characters.total = response.info.count;
+
             response.results.forEach((result) => {
               result.episode = result.episode.map((episode) =>
                 urlParseInt(episode)
@@ -48,6 +51,8 @@ const fetchRickAndMorty = async () => {
         )
           .then((response) => response.json())
           .then((response) => {
+            data.episodes.total = response.info.count;
+
             response.results.forEach((result) => {
               result.characters = result.characters.map((character) =>
                 urlParseInt(character)
@@ -71,6 +76,8 @@ const fetchRickAndMorty = async () => {
         )
           .then((response) => response.json())
           .then((response) => {
+            data.locations.total = response.info.count;
+
             response.results.forEach((result) => {
               result.residents = result.residents.map((character) =>
                 urlParseInt(character)
@@ -87,8 +94,11 @@ const fetchRickAndMorty = async () => {
 };
 
 fetchRickAndMorty().then(() => {
-    console.log('terminou');
-    console.log(data);
-})
+  console.log("terminou");
+  console.log("characters: ", data.characters.total);
+  console.log("episodes: ", data.episodes.total);
+  console.log("locations: ", data.locations.total);
+  console.log(data);
+});
 
-console.log('nao terminou');
+console.log("nao terminou");
