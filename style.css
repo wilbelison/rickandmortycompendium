@@ -319,7 +319,7 @@ h1 {
   #filters .panel {
     display: none;
   }
-  
+
   #filters .label {
     font-family: "calligraphr", "Comic Sans MS", sans-serif;
     padding: 20px;
@@ -339,17 +339,16 @@ h1 {
       1px 0 0 #071417, 1px 1px 0 #071417, 0 1px 0 #071417, -1px 1px 0 #071417,
       -1px 0 0 #071417;
   }
-  
+
   #filters-toggle {
     display: none;
-  } 
-  
+  }
+
   #filters-toggle:checked ~ .panel {
     display: block;
   }
-  
+
   #filters-toggle:checked ~ .label {
     display: none;
   }
 }
-
