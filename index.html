@@ -192,7 +192,7 @@
               <span class="page"></span>
               of
               {{info.pages}}
-              <span class="count">({{info.count}} characters found)</span></div>
+              <span class="count">({{info.count}} characters)</span></div>
             <div id="content" class="grid">
               {{#each results}}
                 <div class="card">
@@ -227,7 +227,7 @@
               {{/each}}
             </div>
           {{else}}
-            <span class="results">No results found</span>
+            <span class="results noresults">No results found</span>
           {{/if}}
         </script>
 
@@ -238,7 +238,7 @@
               <span class="page"></span>
               of
               {{info.pages}}
-              <span class="count">({{info.count}} locations found)</span></div>
+              <span class="count">({{info.count}} locations)</span></div>
             <div id="content" class="grid">
               {{#each results}}
                 <div class="card">
@@ -271,7 +271,7 @@
               <span class="page"></span>
               of
               {{info.pages}}
-              <span class="count">({{info.count}} episodes found)</span></div>
+              <span class="count">({{info.count}} episodes)</span></div>
             <div id="content" class="grid">
               {{#each results}}
                 <div class="card">
