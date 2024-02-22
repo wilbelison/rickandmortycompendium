@@ -1,10 +1,10 @@
 @font-face {
-font-family: "calligraphr";
-src: url('./calligraphr.eot'); /* IE9 Compat Modes */
-src: url('./calligraphr.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-     url('./calligraphr.woff2') format('woff2'), /* Super Modern Browsers */
-     url('./calligraphr.woff') format('woff'), /* Pretty Modern Browsers */
-     url('./calligraphr.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-family: "calligraphr";
+  src: url("./calligraphr.eot"); /* IE9 Compat Modes */
+  src: url("./calligraphr.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("./calligraphr.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("./calligraphr.woff") format("woff"),
+    /* Pretty Modern Browsers */ url("./calligraphr.ttf") format("truetype"); /* Safari, Android, iOS */
 }
 
 * {
@@ -23,15 +23,9 @@ html {
   background-color: #071417;
   margin: 0;
   padding: 0;
-  text-shadow:
-  -1px -1px 0 #071417,
-   0   -1px 0 #071417,
-   1px -1px 0 #071417,
-   1px  0   0 #071417,
-   1px  1px 0 #071417,
-   0    1px 0 #071417,
-  -1px  1px 0 #071417,
-  -1px  0   0 #071417;
+  text-shadow: -1px -1px 0 #071417, 0 -1px 0 #071417, 1px -1px 0 #071417,
+    1px 0 0 #071417, 1px 1px 0 #071417, 0 1px 0 #071417, -1px 1px 0 #071417,
+    -1px 0 0 #071417;
 }
 
 body {
@@ -122,15 +116,9 @@ input[type="submit"] {
   letter-spacing: 2px;
   color: #fff;
   cursor: pointer;
-  text-shadow:
-  -1px -1px 0 #071417,
-   0   -1px 0 #071417,
-   1px -1px 0 #071417,
-   1px  0   0 #071417,
-   1px  1px 0 #071417,
-   0    1px 0 #071417,
-  -1px  1px 0 #071417,
-  -1px  0   0 #071417;
+  text-shadow: -1px -1px 0 #071417, 0 -1px 0 #071417, 1px -1px 0 #071417,
+    1px 0 0 #071417, 1px 1px 0 #071417, 0 1px 0 #071417, -1px 1px 0 #071417,
+    -1px 0 0 #071417;
 }
 
 input[type="submit"]:hover {
@@ -267,8 +255,8 @@ h1 {
   font-size: 16px;
   color: #7a9499;
   float: left;
-  width: 100%;;
-  margin-bottom: 4px;;
+  width: 100%;
+  margin-bottom: 4px;
 }
 
 #pagination {
@@ -293,6 +281,11 @@ h1 {
 
 #footer {
   text-align: center;
+}
+
+#filters-toggle,
+#filters .label {
+  display: none;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -322,4 +315,41 @@ h1 {
   #menu .active {
     border-bottom: none;
   }
+
+  #filters .panel {
+    display: none;
+  }
+  
+  #filters .label {
+    font-family: "calligraphr", "Comic Sans MS", sans-serif;
+    padding: 20px;
+    border-radius: 8px;
+    border: 0;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    background-color: #42b4ca;
+    border: solid 2px #071417;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fff;
+    cursor: pointer;
+    text-shadow: -1px -1px 0 #071417, 0 -1px 0 #071417, 1px -1px 0 #071417,
+      1px 0 0 #071417, 1px 1px 0 #071417, 0 1px 0 #071417, -1px 1px 0 #071417,
+      -1px 0 0 #071417;
+  }
+  
+  #filters-toggle {
+    display: none;
+  } 
+  
+  #filters-toggle:checked ~ .panel {
+    display: block;
+  }
+  
+  #filters-toggle:checked ~ .label {
+    display: none;
+  }
 }
+

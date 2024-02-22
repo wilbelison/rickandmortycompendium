@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rick and Morty Compendium</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.png" type="image/png"/>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src="./script.js"></script>
   </head>
@@ -42,141 +43,145 @@
       </header>
 
       <section id="filters">
-        <h2>Filters</h2>
-        <form action="#">
-          <input type="hidden" id="page" name="page" value="1" />
+        <input type="checkbox" id="filters-toggle" name="filters-toggle"/>
+        <label for="filters-toggle" class="label">Filters</label>
+        <div class="panel">
+          <h2>Filters</h2>
+          <form action="#">
+            <input type="hidden" id="page" name="page" value="1" />
 
-          <div class="templates">
-            <script
-              id="template-filters-character"
-              type="text/x-handlebars-template"
-            >
-              <input
-                type="hidden"
-                id="category"
-                name="category"
-                value="character"
-              />
-              <div class="filter">
-                <label for="name">Name</label>
+            <div class="templates">
+              <script
+                id="template-filters-character"
+                type="text/x-handlebars-template"
+              >
                 <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Ex.: Rick, Morty, Summer..."
+                  type="hidden"
+                  id="category"
+                  name="category"
+                  value="character"
                 />
-              </div>
-              <div class="filter">
-                <label for="status">Status</label>
-                <select name="status" id="status">
-                  <option value="" selected>All</option>
-                  <option value="alive">Alive</option>
-                  <option value="dead">Dead</option>
-                  <option value="unknown">Unknown</option>
-                </select>
-              </div>
-              <div class="filter">
-                <label for="species">Specie</label>
-                <input
-                  type="text"
-                  id="species"
-                  name="species"
-                  placeholder="Ex.: Alien, human, animal..."
-                />
-              </div>
-              <div class="filter">
-                <label for="type">Subspecie</label>
-                <input
-                  type="text"
-                  id="type"
-                  name="type"
-                  placeholder="Ex.: Parasite, Human with..."
-                />
-              </div>
-              <div class="filter">
-                <label for="gender">Gender</label>
-                <select name="gender" id="filter-gender">
-                  <option value="" selected>All</option>
-                  <option value="female">Female</option>
-                  <option value="genderless">Genderless</option>
-                  <option value="male">Male</option>
-                  <option value="unknown">Unknown</option>
-                </select>
-              </div>
-            </script>
+                <div class="filter">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Ex.: Rick, Morty, Summer..."
+                  />
+                </div>
+                <div class="filter">
+                  <label for="status">Status</label>
+                  <select name="status" id="status">
+                    <option value="" selected>All</option>
+                    <option value="alive">Alive</option>
+                    <option value="dead">Dead</option>
+                    <option value="unknown">Unknown</option>
+                  </select>
+                </div>
+                <div class="filter">
+                  <label for="species">Specie</label>
+                  <input
+                    type="text"
+                    id="species"
+                    name="species"
+                    placeholder="Ex.: Alien, human, animal..."
+                  />
+                </div>
+                <div class="filter">
+                  <label for="type">Subspecie</label>
+                  <input
+                    type="text"
+                    id="type"
+                    name="type"
+                    placeholder="Ex.: Parasite, Human with..."
+                  />
+                </div>
+                <div class="filter">
+                  <label for="gender">Gender</label>
+                  <select name="gender" id="filter-gender">
+                    <option value="" selected>All</option>
+                    <option value="female">Female</option>
+                    <option value="genderless">Genderless</option>
+                    <option value="male">Male</option>
+                    <option value="unknown">Unknown</option>
+                  </select>
+                </div>
+              </script>
 
-            <script
-              id="template-filters-location"
-              type="text/x-handlebars-template"
-            >
-              <input
-                type="hidden"
-                id="category"
-                name="category"
-                value="location"
-              />
-              <div class="filter">
-                <label for="name">Name</label>
+              <script
+                id="template-filters-location"
+                type="text/x-handlebars-template"
+              >
                 <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Ex.: Earth, Citadel of Ricks..."
+                  type="hidden"
+                  id="category"
+                  name="category"
+                  value="location"
                 />
-              </div>
-              <div class="filter">
-                <label for="type">Type</label>
-                <input
-                  type="text"
-                  id="type"
-                  name="type"
-                  placeholder="Ex.: Planet, Space Station..."
-                />
-              </div>
-              <div class="filter">
-                <label for="dimension">Dimension</label>
-                <input
-                  type="text"
-                  id="dimension"
-                  name="dimension"
-                  placeholder="Ex.: C-137, Fantasy Dimension..."
-                />
-              </div>
-            </script>
+                <div class="filter">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Ex.: Earth, Citadel of Ricks..."
+                  />
+                </div>
+                <div class="filter">
+                  <label for="type">Type</label>
+                  <input
+                    type="text"
+                    id="type"
+                    name="type"
+                    placeholder="Ex.: Planet, Space Station..."
+                  />
+                </div>
+                <div class="filter">
+                  <label for="dimension">Dimension</label>
+                  <input
+                    type="text"
+                    id="dimension"
+                    name="dimension"
+                    placeholder="Ex.: C-137, Fantasy Dimension..."
+                  />
+                </div>
+              </script>
 
-            <script
-              id="template-filters-episode"
-              type="text/x-handlebars-template"
-            >
-              <input
-                type="hidden"
-                id="category"
-                name="category"
-                value="episode"
-              />
-              <div class="filter">
-                <label for="name">Name</label>
+              <script
+                id="template-filters-episode"
+                type="text/x-handlebars-template"
+              >
                 <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Ex.: Pilot"
+                  type="hidden"
+                  id="category"
+                  name="category"
+                  value="episode"
                 />
-              </div>
-              <div class="filter">
-                <label for="episode">Code</label>
-                <input
-                  type="text"
-                  id="episode"
-                  name="episode"
-                  placeholder="Ex.: S01E01"
-                />
-              </div>
-            </script>
-          </div>
+                <div class="filter">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Ex.: Pilot"
+                  />
+                </div>
+                <div class="filter">
+                  <label for="episode">Code</label>
+                  <input
+                    type="text"
+                    id="episode"
+                    name="episode"
+                    placeholder="Ex.: S01E01"
+                  />
+                </div>
+              </script>
+            </div>
 
-          <input type="submit" value="Apply filters" />
-        </form>
+            <input type="submit" value="Apply filters" />
+          </form>
+        </div>
       </section>
 
       <main id="contents">

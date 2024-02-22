@@ -20,14 +20,10 @@ const apiURL =
   "?" +
   urlParams.toString();
 
-console.log(apiURL);
-
 const data = fetch(apiURL)
   .then((response) => response.json())
   .then((response) => (content = response))
   .then(function () {
-    console.log(content);
-
     const menu = document.querySelector("#menu");
     menu.querySelector("a." + filterCategory).classList.add("active");
 

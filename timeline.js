@@ -99,6 +99,33 @@ fetchRickAndMorty().then(() => {
   console.log("episodes: ", data.episodes.total);
   console.log("locations: ", data.locations.total);
   console.log(data);
+
+  let charactersList = "";
+
+  for (i = 1; i <= data.characters.total; i++) {
+    charactersList +=
+    `
+    <div>
+      ${data.characters[i].id}
+      ${data.characters[i].name}
+    </div>
+    `;
+  }
+
+  let contentHTML = `
+  <h2>Characters (${data.characters.total})</h2>
+
+  <div>
+    ${charactersList}
+  <div>
+
+  <h2>Episodes (${data.episodes.total})</h2>
+
+  <h2>Locations (${data.locations.total})</h2>
+
+  `;
+
+  document.querySelector("#content").innerHTML = contentHTML;
 });
 
 console.log("nao terminou");
