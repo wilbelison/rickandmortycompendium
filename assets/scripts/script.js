@@ -1,7 +1,9 @@
 let urlParams = new URLSearchParams(window.location.search);
+
 const filterCategory = urlParams.get("category") || "character";
 const filterPage = urlParams.get("page") || 1;
 const filterContent = urlParams.get("content") || "";
+
 urlParams.set("category", filterCategory);
 urlParams.set("page", filterPage);
 urlParams.delete("content");

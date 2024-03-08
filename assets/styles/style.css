@@ -1,10 +1,10 @@
 @font-face {
   font-family: "calligraphr";
-  src: url("./calligraphr.eot"); /* IE9 Compat Modes */
-  src: url("./calligraphr.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */ url("./calligraphr.woff2") format("woff2"),
-    /* Super Modern Browsers */ url("./calligraphr.woff") format("woff"),
-    /* Pretty Modern Browsers */ url("./calligraphr.ttf") format("truetype"); /* Safari, Android, iOS */
+  src: url("./assets/fonts/calligraphr.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/calligraphr.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/calligraphr.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("./assets/fonts/calligraphr.woff") format("woff"),
+    /* Pretty Modern Browsers */ url("./assets/fonts/calligraphr.ttf") format("truetype"); /* Safari, Android, iOS */
 }
 
 * {
