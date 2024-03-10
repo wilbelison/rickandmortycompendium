@@ -12,14 +12,14 @@
     --color-input-placeholder: #7a9499;
 
     --color-blue: #42b4ca;
-    --color-green: #bfde42;
+    --color-green: #bfde42; 
     --color-white: #ffffff;
 
-    --stroke-text-shadow: -1px -1px 0 var(--color-stroke),
-      0 -1px 0 var(--color-stroke), 1px -1px 0 var(--color-stroke),
-      1px 0 0 var(--color-stroke), 1px 1px 0 var(--color-stroke),
-      0 1px 0 var(--color-stroke), -1px 1px 0 var(--color-stroke),
-      -1px 0 0 var(--color-stroke);
+    --stroke-text-shadow: -1px -1px 0 #193840,
+      0 -1px 0 #193840, 1px -1px 0 #193840,
+      1px 0 0 #193840, 1px 1px 0 #193840,
+      0 1px 0 #193840, -1px 1px 0 #193840,
+      -1px 0 0 #193840;
   }
 
   @font-face {
@@ -37,7 +37,6 @@
     border: 0;
   }
 
-  body,
   html {
     font-family: "calligraphr", "Comic Sans MS", sans-serif;
     letter-spacing: 2px;
