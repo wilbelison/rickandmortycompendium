@@ -1,181 +1,201 @@
-@font-face {
-  font-family: "calligraphr";
-  src: url(".,/fonts/calligraphr.eot");
-  src: url("../fonts/calligraphr.eot?#iefix") format("embedded-opentype"),
-  url("../fonts/calligraphr.woff2") format("woff2"),
-  url("../fonts/calligraphr.woff") format("woff"),
-  url("../fonts/calligraphr.ttf") format("truetype");
+@layer base {
+  :root {
+    --color-background: #071417;
+
+    --color-text-stroke: #071417;
+    --color-text-default: #a3c5cc;
+
+    --color-card-background: #193840;
+    --color-card-label: #7a9499;
+
+    --color-input-background: #193840;
+    --color-input-placeholder: #7a9499;
+
+    --color-blue: #42b4ca;
+    --color-green: #bfde42;
+    --color-white: #ffffff;
+
+    --stroke-text-shadow: -1px -1px 0 var(--color-stroke),
+      0 -1px 0 var(--color-stroke), 1px -1px 0 var(--color-stroke),
+      1px 0 0 var(--color-stroke), 1px 1px 0 var(--color-stroke),
+      0 1px 0 var(--color-stroke), -1px 1px 0 var(--color-stroke),
+      -1px 0 0 var(--color-stroke);
+  }
+
+  @font-face {
+    font-family: "calligraphr";
+    src: url(".,/fonts/calligraphr.eot");
+    src: url("../fonts/calligraphr.eot?#iefix") format("embedded-opentype"),
+      url("../fonts/calligraphr.woff2") format("woff2"),
+      url("../fonts/calligraphr.woff") format("woff"),
+      url("../fonts/calligraphr.ttf") format("truetype");
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+  }
+
+  body,
+  html {
+    font-family: "calligraphr", "Comic Sans MS", sans-serif;
+    letter-spacing: 2px;
+    font-size: 16px;
+    color: var(--color-text-default);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+    text-shadow: var(--stroke-text-shadow);
+  }
+
+  body {
+    padding: 40px;
+  }
+
+  .wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  #header {
+    grid-area: header;
+  }
+  #filters {
+    grid-area: filters;
+  }
+  #contents {
+    grid-area: contents;
+  }
+  #pagination {
+    grid-area: pagination;
+  }
+  #footer {
+    grid-area: footer;
+  }
+
+  #base {
+    display: grid;
+    grid-template-columns: 280px auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header header"
+      "filters contents"
+      ". pagination"
+      "footer footer";
+    grid-gap: 80px;
+    padding: 0 40px;
+  }
+
+  input,
+  select {
+    font-family: "calligraphr", "Comic Sans MS", sans-serif;
+    padding: 20px;
+    border-radius: 8px;
+    border: 0;
+  }
+
+  input[type="text"],
+  select {
+    background-color: var(--color-input-background);
+    font-size: 18px;
+    color: #fff;
+    border: 0;
+  }
+
+  select {
+    appearance: none;
+    cursor: pointer;
+    padding-right: 40px;
+
+    background-image: linear-gradient(45deg, transparent 50%, #a3c5cc 50%),
+      linear-gradient(135deg, #a3c5cc 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 8px),
+      calc(100% - 15px) calc(1em + 8px), 100% 0;
+    background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+    background-repeat: no-repeat;
+  }
+
+  input[type="submit"] {
+    background-color: var(--color-blue);
+    border: solid 2px var(--color-background);
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fff;
+    cursor: pointer;
+    text-shadow: var(--stroke-text-shadow);
+  }
+
+  input[type="submit"]:hover {
+    background-color: var(--color-green);
+  }
+
+  input[type="text"]::placeholder {
+    color: var(--color-input-placeholder);
+  }
+
+  a,
+  a:visited {
+    color: var(--color-blue);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-white);
+  }
+  a:active {
+    color: var(--color-green);
+  }
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  border: 0;
-  transition-duration: 0.5s;
-}
+@layer header {
+  #header {
+    gap: 80px;
+    display: flex;
+  }
+  #logo {
+    width: 285px;
+    text-align: right;
+    font-size: 18px;
+  }
+  #logo img {
+    width: 100%;
+    font-size: 48px;
+  }
 
-body,
-html {
-  font-family: "calligraphr", "Comic Sans MS", sans-serif;
-  letter-spacing: 2px;
-  font-size: 16px;
-  color: #a3c5cc;
-  background-color: #071417;
-  margin: 0;
-  padding: 0;
-  text-shadow: -1px -1px 0 #071417, 0 -1px 0 #071417, 1px -1px 0 #071417,
-    1px 0 0 #071417, 1px 1px 0 #071417, 0 1px 0 #071417, -1px 1px 0 #071417,
-    -1px 0 0 #071417;
-}
+  a #logo {
+    color: #a3c5cc;
+  }
 
-body {
-  padding: 40px;
-}
+  #menu {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+  }
 
-.wrapper {
-  max-width: 1440px;
-  margin: 0 auto;
-}
+  #menu ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+  }
 
-#header {
-  gap: 80px;
-  grid-area: header;
-}
-#filters {
-  grid-area: filters;
-}
-#contents {
-  grid-area: contents;
-}
-#pagination {
-  grid-area: pagination;
-}
-#footer {
-  grid-area: footer;
-}
+  #menu li {
+    list-style: none;
+  }
 
-#base {
-  display: grid;
-  grid-template-columns: 280px auto;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "header header"
-    "filters contents"
-    ". pagination"
-    "footer footer";
-  grid-gap: 80px;
-  padding: 0 40px;
-}
+  #menu a {
+    padding-bottom: 8px;
+  }
 
-a,
-a:visited {
-  color: #42b4ca;
-  text-decoration: none;
-}
-a:hover {
-  color: #ffffff;
-}
-a:active {
-  color: #bfde42;
-}
-
-input,
-select {
-  font-family: "calligraphr", "Comic Sans MS", sans-serif;
-  padding: 20px;
-  border-radius: 8px;
-  border: 0;
-}
-
-input[type="text"],
-select {
-  background-color: #193840;
-  font-size: 18px;
-  color: #fff;
-  border: 0;
-}
-
-select {
-  appearance: none;
-  cursor: pointer;
-  padding-right: 40px;
-
-  background-image: linear-gradient(45deg, transparent 50%, #a3c5cc 50%),
-    linear-gradient(135deg, #a3c5cc 50%, transparent 50%);
-  background-position: calc(100% - 20px) calc(1em + 8px),
-    calc(100% - 15px) calc(1em + 8px), 100% 0;
-  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-  background-repeat: no-repeat;
-}
-
-input[type="submit"] {
-  background-color: #42b4ca;
-  border: solid 2px #071417;
-  font-size: 18px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #fff;
-  cursor: pointer;
-  text-shadow: -1px -1px 0 #071417, 0 -1px 0 #071417, 1px -1px 0 #071417,
-    1px 0 0 #071417, 1px 1px 0 #071417, 0 1px 0 #071417, -1px 1px 0 #071417,
-    -1px 0 0 #071417;
-}
-
-input[type="submit"]:hover {
-  background-color: #bfde42;
-}
-
-input[type="text"]::placeholder {
-  color: #7a9499;
-}
-
-header {
-  display: flex;
-}
-
-#logo {
-  width: 285px;
-  text-align: right;
-  font-size: 18px;
-}
-
-#logo img {
-  width: 100%;
-  font-size: 48px;
-}
-
-a #logo {
-  color: #a3c5cc;
-}
-
-#menu {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  flex-direction: column;
-}
-
-#menu ul {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  font-size: 24px;
-  margin: 0;
-  padding: 0;
-}
-
-#menu li {
-  list-style: none;
-}
-
-#menu a {
-  padding-bottom: 8px;
-}
-
-#menu .active {
-  color: #bfde42;
-  border-bottom: solid 2px #bfde42;
+  #menu .active {
+    color: var(--color-green);
+    border-bottom: solid 2px var(--color-green);
+  }
 }
 
 #filters h2 {
@@ -207,7 +227,7 @@ h1 {
 .avatar {
   width: 184px;
   border-radius: 50% 40% 50% 40%;
-  border: solid 4px #bfde42;
+  border: solid 4px var(--color-green);
 }
 
 .grid {
@@ -229,14 +249,14 @@ h1 {
   width: 280px;
   border-radius: 8px;
   padding: 40px;
-  background-color: #193840;
+  background-color: var(--color-card-background);
   flex-direction: column;
 }
 
 .grid .card h3 {
   text-align: center;
   font-size: 24px;
-  color: #bfde42;
+  color: var(--color-green);
 }
 
 .grid .card .infos {
@@ -253,7 +273,7 @@ h1 {
 
 .grid .card .infos .label {
   font-size: 16px;
-  color: #7a9499;
+  color: var(--color-card-label);
   float: left;
   width: 100%;
   margin-bottom: 4px;
@@ -328,16 +348,14 @@ h1 {
     text-align: center;
     cursor: pointer;
     display: block;
-    background-color: #42b4ca;
-    border: solid 2px #071417;
+    background-color: var(--color-blue);
+    border: solid 2px var(--color-background);
     font-size: 18px;
     font-weight: bold;
     letter-spacing: 2px;
     color: #fff;
     cursor: pointer;
-    text-shadow: -1px -1px 0 #071417, 0 -1px 0 #071417, 1px -1px 0 #071417,
-      1px 0 0 #071417, 1px 1px 0 #071417, 0 1px 0 #071417, -1px 1px 0 #071417,
-      -1px 0 0 #071417;
+    text-shadow: var(--stroke-text-shadow);
   }
 
   #filters-toggle {
