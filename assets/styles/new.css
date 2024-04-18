@@ -13,13 +13,13 @@
 
     --color-blue: #42b4ca;
     --color-green: #bfde42; 
-    --color-white: #ffffff;
+    --color-white: #FFFFFF;
 
-    --stroke-text-shadow: -1px -1px 0 #193840,
-      0 -1px 0 #193840, 1px -1px 0 #193840,
-      1px 0 0 #193840, 1px 1px 0 #193840,
-      0 1px 0 #193840, -1px 1px 0 #193840,
-      -1px 0 0 #193840;
+    --stroke-text-shadow: -1px -1px 0 #071417,
+      0 -1px 0 #071417, 1px -1px 0 #071417,
+      1px 0 0 #071417, 1px 1px 0 #071417,
+      0 1px 0 #071417, -1px 1px 0 #071417,
+      -1px 0 0 #071417;
   }
 
   @font-face {
@@ -35,6 +35,8 @@
     box-sizing: border-box;
     margin: 0;
     border: 0;
+    /* -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
   }
 
   html {
@@ -56,6 +58,8 @@
     max-width: 1440px;
     margin: 0 auto;
   }
+
+  /* grid */
 
   #header {
     grid-area: header;
@@ -92,14 +96,14 @@
     padding: 20px;
     border-radius: 8px;
     border: 0;
+    text-shadow: var(--stroke-text-shadow);
   }
 
   input[type="text"],
   select {
     background-color: var(--color-input-background);
     font-size: 18px;
-    color: #fff;
-    border: 0;
+    color: var(--color-white);
   }
 
   select {
@@ -117,13 +121,10 @@
 
   input[type="submit"] {
     background-color: var(--color-blue);
-    border: solid 2px var(--color-background);
     font-size: 18px;
     font-weight: bold;
-    letter-spacing: 2px;
-    color: #fff;
+    color: var(--color-white);
     cursor: pointer;
-    text-shadow: var(--stroke-text-shadow);
   }
 
   input[type="submit"]:hover {
@@ -151,19 +152,16 @@
   #header {
     gap: 80px;
     display: flex;
-  }
-  #logo {
-    width: 285px;
-    text-align: right;
-    font-size: 18px;
-  }
-  #logo img {
-    width: 100%;
-    font-size: 48px;
-  }
-
-  a #logo {
-    color: #a3c5cc;
+    #logo {
+      width: 285px;
+      text-align: right;
+      font-size: 18px;
+      color: var(--color-text-default);
+      img {
+        width: 100%;
+        font-size: 48px;
+      }
+    }
   }
 
   #menu {
@@ -196,6 +194,8 @@
     border-bottom: solid 2px var(--color-green);
   }
 }
+
+
 
 #filters h2 {
   margin-bottom: 40px;
@@ -263,7 +263,7 @@ h1 {
   gap: 16px;
   margin: 0;
   padding: 0;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .grid .card .infos li {
@@ -295,7 +295,7 @@ h1 {
 }
 
 #pagination .total {
-  color: #fff;
+  color: var(--color-white);
 }
 
 #footer {
@@ -351,8 +351,7 @@ h1 {
     border: solid 2px var(--color-background);
     font-size: 18px;
     font-weight: bold;
-    letter-spacing: 2px;
-    color: #fff;
+    color: var(--color-white);
     cursor: pointer;
     text-shadow: var(--stroke-text-shadow);
   }
