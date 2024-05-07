@@ -16,7 +16,7 @@ Este projeto é uma verdadeira enciclopédia interativa para os fãs da série d
 
 - **Filtros e Pesquisas**: Facilmente pesquise por nome, status, sexo e outros atributos para encontrar rapidamente o que procura.
 
-- **Live Demo e Código Aberto**: Experimente uma [demonstração ao vivo](link_para_demo) ou explore o [código-fonte](https://github.com/wilbelison/rickandmortycompendium) disponível publicamente para aprender e contribuir.
+- **Live Demo e Código Aberto**: Experimente uma [demonstração ao vivo](https://wilbelison.github.io/rickandmortycompendium/) ou explore o [código-fonte](https://github.com/wilbelison/rickandmortycompendium) disponível publicamente para aprender e contribuir.
 
 - **Handlebar.js - Templates Dinâmicos**: Utilizando o framework Handlebar.js, este projeto implementa templates dinâmicos para renderizar os dados obtidos da API em HTML, facilitando a exibição e manipulação dos mesmos.
 
@@ -26,4 +26,4 @@ Explore o universo de "Rick and Morty" como nunca antes com este compêndio inte
 
 ## Live Demo
 
-Acesse a [Live Demo](https://github.com/Mathhedev/Projeto-Rick-and-Morty) para experimentar o projeto em ação!
+Acesse a [Live Demo](https://wilbelison.github.io/rickandmortycompendium/) para experimentar o projeto em ação!
